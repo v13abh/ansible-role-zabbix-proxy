@@ -1,0 +1,5 @@
+---
+# tasks file for OULibraries.zabbix
+
+- include: install.yml
+  sudo: yes

@@ -1,0 +1,10 @@
+---
+# defaults file for OULibraries.zabbix
+
+mariadb_host: "localhost"
+mariadb_port: "3306"
+mariadb_root_user: 'root'
+
+mariadb_zabbix_user: 'zabbix'
+mariadb_zabbix_db: 'zabbix'
+mariadb_zabbix_pass: 'zabbix'
