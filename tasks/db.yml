@@ -1,0 +1,22 @@
+---
+
+- name: Database for Zabbix exists
+  mysql_db:
+    name: "{{ mariadb_zabbix_db}}"
+    state: present
+    login_user: "{{mariadb_root_user}}"
+    login_password: "root"
+    login_host: "{{mariadb_host}}"
+  notify: import zabbix schema
+
+
+- name: Create database user for Zabbix
+  mysql_user:
+    name: "{{mariadb_zabbix_user}}"
+    host: localhost
+    state: present
+    priv: "{{ mariadb_zabbix_db }}.*:ALL"
+    password: "{{mariadb_zabbix_pass}}"
+    login_user: "{{mariadb_root_user}}"
+    login_password: "root"
+    login_host: "{{mariadb_host}}"

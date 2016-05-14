@@ -3,3 +3,8 @@
 
 - include: install.yml
   sudo: yes
+
+- include: db.yml
+  sudo: yes
+  tags:
+    - database
