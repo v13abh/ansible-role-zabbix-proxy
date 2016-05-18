@@ -4,11 +4,12 @@
 - include: install.yml
   sudo: yes
 
-- include: assets.yml
-  sudo: yes
-  tags: assets
-  
 - include: db.yml
   sudo: yes
   tags:
     - database
+
+- include: assets.yml
+  sudo: yes
+  tags:
+    - assets

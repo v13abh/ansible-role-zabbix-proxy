@@ -7,7 +7,7 @@
     login_user: "{{mariadb_root_user}}"
     login_password: "root"
     login_host: "{{mariadb_host}}"
-  notify: import zabbix schema
+  notify: Import Zabbix schema
 
 
 - name: Database user for Zabbix exists
