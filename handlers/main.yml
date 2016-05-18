@@ -2,7 +2,7 @@
 # handlers file for OULibraries.zabbix
 - name: import zabbix schema
   mysql_db:
-    name: "{{ mariadb_zabbix_db}}"
+    name: "{{ zabbix_db}}"
     target: "/usr/share/doc/zabbix-server-mysql-3.0.2/create.sql.gz"
     state: import
     login_user: "{{mariadb_root_user}}"

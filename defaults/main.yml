@@ -1,10 +1,15 @@
 ---
 # defaults file for OULibraries.zabbix
 
+# DB admin user for creating zabbix db 
 mariadb_host: "localhost"
 mariadb_port: "3306"
 mariadb_root_user: 'root'
 
-mariadb_zabbix_user: 'zabbix'
-mariadb_zabbix_db: 'zabbix'
-mariadb_zabbix_pass: 'zabbix'
+# Zabbix db and credentials
+zabbix_db: 'zabbix'
+zabbix_db_user: 'zabbix'
+zabbix_db_pass: 'zabbix'
+
+
+zabbix_tz: "America/Chicago"
