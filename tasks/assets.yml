@@ -1,0 +1,28 @@
+---
+- name : Configure Zabbix Server
+  template: 
+    src: templates/zabbix_server.conf.j2
+    dest: /etc/zabbix/zabbix_server.conf
+    owner: root
+    group: zabbix
+    mode: 0640
+  notify: Restart Zabbix server
+    
+
+- name : Configure Zabbix Web
+  template: 
+    src: templates/zabbix.conf.j2
+    dest:  /etc/httpd/conf.d/zabbix.conf
+    owner: root
+    group: zabbix
+    mode: 0640
+  notify: Restart Zabbix web
+
+- name : Configure Zabbix PHP
+  template: 
+    src: templates/zabbix.conf.php.j2
+    dest:  /etc/zabbix/web/zabbix.conf.php
+    owner: apache
+    group: apache
+    mode: 0644
+  notify: Restart Zabbix web

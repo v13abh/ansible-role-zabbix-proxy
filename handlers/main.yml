@@ -1,6 +1,6 @@
 ---
 # handlers file for OULibraries.zabbix
-- name: import zabbix schema
+- name: Import zabbix schema
   mysql_db:
     name: "{{ zabbix_db}}"
     target: "/usr/share/doc/zabbix-server-mysql-3.0.2/create.sql.gz"
@@ -8,3 +8,14 @@
     login_user: "{{mariadb_root_user}}"
     login_password: "root"
     login_host: "{{mariadb_host}}"
+
+
+- name: Start Zabbix server
+  service:
+    name: zabbix-server
+    state: started
+
+- name: Resart Zabbix web
+  service:
+    name: httpd
+    state: restarted
