@@ -2,36 +2,48 @@
 # Zabbix monitoring system php web frontend
 #
 
-Alias /zabbix /usr/share/zabbix
+<VirtualHost *:443>
 
-<Directory "/usr/share/zabbix">
-    Options FollowSymLinks
-    AllowOverride None
-    Require all granted
+  Include /etc/httpd/conf.d/00ssl.include
+  SSLCertificateFile ${HTTPD_CERT_PATH}/star.${HTTPD_DN_SUFFIX}/cert.pem
+  SSLCertificateKeyFile ${HTTPD_KEY_PATH}/star.${HTTPD_DN_SUFFIX}/privkey.pem
+  SSLCertificateChainFile ${HTTPD_CERT_PATH}/star.${HTTPD_DN_SUFFIX}/chain.pem
 
-    <IfModule mod_php5.c>
-        php_value max_execution_time 300
-        php_value memory_limit 128M
-        php_value post_max_size 16M
-        php_value upload_max_filesize 2M
-        php_value max_input_time 300
-        php_value always_populate_raw_post_data -1
-        php_value date.timezone {{ zabbix_tz }}
-    </IfModule>
-</Directory>
+  # TODO need to paramaterize
+  ServerName {{zabbix_hostname}}.${HTTPD_DN_SUFFIX}
 
-<Directory "/usr/share/zabbix/conf">
+  Alias /zabbix /usr/share/zabbix
+
+  <Directory "/usr/share/zabbix">
+      Options FollowSymLinks
+      AllowOverride None
+      Require all granted
+
+      <IfModule mod_php5.c>
+      php_value max_execution_time 300
+      php_value memory_limit 128M
+      php_value post_max_size 16M
+      php_value upload_max_filesize 2M
+      php_value max_input_time 300
+      php_value always_populate_raw_post_data -1
+      php_value date.timezone {{ zabbix_tz }}
+      </IfModule>
+  </Directory>
+
+  <Directory "/usr/share/zabbix/conf">
     Require all denied
-</Directory>
+  </Directory>
 
-<Directory "/usr/share/zabbix/app">
+  <Directory "/usr/share/zabbix/app">
     Require all denied
-</Directory>
+  </Directory>
 
-<Directory "/usr/share/zabbix/include">
+  <Directory "/usr/share/zabbix/include">
     Require all denied
-</Directory>
+  </Directory>
 
-<Directory "/usr/share/zabbix/local">
+  <Directory "/usr/share/zabbix/local">
     Require all denied
-</Directory>
+  </Directory>
+
+</VirtualHost>
