@@ -19,6 +19,11 @@ zabbix_db: 'zabbix'
 zabbix_db_user: 'zabbix'
 zabbix_db_pass: 'zabbix'
 
-
 zabbix_tz: "America/Chicago"
+
+
+
+# TLD to use with zabbix, prepended to base dn from Apache role
+zabbix_hostname: 'monitor'
+
 ```
