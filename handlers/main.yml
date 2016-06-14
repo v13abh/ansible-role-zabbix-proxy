@@ -3,7 +3,7 @@
 - name: Import Zabbix schema
   mysql_db:
     name: "{{ zabbix_db}}"
-    target: "/usr/share/doc/zabbix-server-mysql-3.0.3/create.sql.gz"
+    target: "/usr/share/doc/zabbix-server-mysql-{{ zabbix_version }}/create.sql.gz"
     state: import
     login_user: "{{mariadb_root_user}}"
     login_password: "root"
