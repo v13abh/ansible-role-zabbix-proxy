@@ -1,12 +1,22 @@
 OU Libraries Zabbix
 =========
 
-Basic OU Libraries Zabbix zerver role for CentOS.
+Rudimentary Zabbix zerver role for CentOS.
+
+Requirements
+------------
+
+This role requires:
+
+- [OULibraries.centos7](https://github.com/OULibraries/ansible-role-centos7)
+- [OULibraries.mariadb](https://github.com/OULibraries/ansible-role-mariadb)
+- [OULibraries.apache2](https://github.com/OULibraries/ansible-role-apache2)
 
 
 Role Variables
 --------------
 
+The following variables are defined:
 
 ```
 # DB admin user for creating zabbix db 
