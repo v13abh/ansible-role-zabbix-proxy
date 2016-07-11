@@ -23,6 +23,7 @@ The following variables are defined:
 mariadb_host: "localhost"
 mariadb_port: "3306"
 mariadb_root_user: 'root'
+mariadb_root_pw: 'root'
 
 # Zabbix db and credentials
 zabbix_db: 'zabbix'
