@@ -5,7 +5,7 @@
     name: "{{ zabbix_db}}"
     state: present
     login_user: "{{mariadb_root_user}}"
-    login_password: "root"
+    login_password: "{{mariadb_root_pw}}"
     login_host: "{{mariadb_host}}"
   notify: Import Zabbix schema
 
@@ -18,5 +18,5 @@
     priv: "{{ zabbix_db }}.*:ALL"
     password: "{{zabbix_db_pass}}"
     login_user: "{{mariadb_root_user}}"
-    login_password: "root"
+    login_password: "{{mariadb_root_pw}}"
     login_host: "{{mariadb_host}}"
