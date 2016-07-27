@@ -1,7 +1,8 @@
 OU Libraries Zabbix
 =========
 
-Rudimentary Zabbix zerver role for CentOS.
+Rudimentary Zabbix zerver role for CentOS 7.
+See the [Zabbix 3.0 documentation](https://www.zabbix.com/documentation/3.0/manual).
 
 Requirements
 ------------
@@ -19,6 +20,9 @@ Role Variables
 The following variables are defined:
 
 ```
+# Domain name suffix to the hostname. hostname + dn_suffix == fqdn.
+httpd_dn_suffix: 'example.com'
+
 # DB admin user for creating zabbix db 
 mariadb_host: "localhost"
 mariadb_port: "3306"
