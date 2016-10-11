@@ -1,6 +1,7 @@
 ---
 - name : Configure Zabbix Server
   template: 
+    backup: yes
     src: templates/zabbix_server.conf.j2
     dest: /etc/zabbix/zabbix_server.conf
     owner: root
@@ -10,7 +11,8 @@
     
 
 - name : Configure Zabbix Web
-  template: 
+  template:
+    backup: yes 
     src: templates/zabbix.conf.j2
     dest:  /etc/httpd/conf.d/zabbix.conf
     owner: root
@@ -19,7 +21,8 @@
   notify: Restart Zabbix web
 
 - name : Configure Zabbix PHP
-  template: 
+  template:
+    backup: yes 
     src: templates/zabbix.conf.php.j2
     dest:  /etc/zabbix/web/zabbix.conf.php
     owner: apache
@@ -29,6 +32,7 @@
 
 - name : Configure Zabbix Proxy
   template:
+    backup: yes
     src: templates/zabbix_proxy.conf.j2
     dest: /etc/zabbix/zabbix_proxy.conf
     owner: root
@@ -38,6 +42,7 @@
 
 - name : Configure Zabbix Agent
   template:
+    backup: yes
     src: templates/zabbix_agentd.conf.j2
     dest: /etc/zabbix/zabbix_agent.conf
     owner: root
