@@ -26,3 +26,14 @@
     group: apache
     mode: 0644
   notify: Restart Zabbix web
+
+- name : Configure Zabbix Proxy
+  template:
+    src: templates/zabbix_proxy.conf.j2
+    dest: /etc/zabbix/zabbix_proxy.conf
+    owner: root
+    group: zabbix
+    mode: 0640
+  notify: Restart Zabbix proxy
+  notify: Restart Zabbix agent
+

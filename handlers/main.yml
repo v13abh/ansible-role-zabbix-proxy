@@ -3,7 +3,7 @@
 - name: Import Zabbix schema
   mysql_db:
     name: "{{ zabbix_db}}"
-    target: "/usr/share/doc/zabbix-server-mysql-{{ zabbix_version }}/create.sql.gz"
+    target: "/usr/share/doc/zabbix-proxy-mysql-{{ zabbix_version }}/schema.sql.gz"
     state: import
     login_user: "{{mariadb_root_user}}"
     login_password: "root"
@@ -18,4 +18,14 @@
 - name: Restart Zabbix web
   service:
     name: httpd
+    state: restarted
+
+- name: Restart Zabbix agent
+  service:
+    name: zabbix-agent
+    state: restarted
+
+- name: Restart Zabbix proxy
+  service:
+    name: zabbix-proxy
     state: restarted
