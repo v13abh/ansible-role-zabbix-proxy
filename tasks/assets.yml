@@ -38,7 +38,7 @@
 
 - name : Configure Zabbix Agent
   template:
-    src: templates/zabbix_agent.conf.j2
+    src: templates/zabbix_agentd.conf.j2
     dest: /etc/zabbix/zabbix_agent.conf
     owner: root
     group: zabbix
