@@ -193,7 +193,7 @@ DBPassword=zabbix
 # Mandatory: no
 # Range: 1-720
 # Default:
-# ProxyOfflineBuffer=1
+ProxyOfflineBuffer=72
 
 ### Option: HeartbeatFrequency
 #	Frequency of heartbeat messages in seconds.
@@ -213,7 +213,7 @@ DBPassword=zabbix
 # Mandatory: no
 # Range: 1-3600*24*7
 # Default:
-# ConfigFrequency=3600
+ConfigFrequency=3600
 
 ### Option: DataSenderFrequency
 #	Proxy will send collected data to the Server every N seconds.
@@ -222,7 +222,7 @@ DBPassword=zabbix
 # Mandatory: no
 # Range: 1-3600
 # Default:
-# DataSenderFrequency=1
+DataSenderFrequency=1
 
 ############ ADVANCED PARAMETERS ################
 
@@ -451,7 +451,7 @@ Timeout=4
 # Mandatory: no
 # Range: 1-3600
 # Default:
-# UnreachablePeriod=45
+UnreachablePeriod=120
 
 ### Option: UnavailableDelay
 #	How often host is checked for availability during the unavailability period, in seconds.
@@ -459,7 +459,7 @@ Timeout=4
 # Mandatory: no
 # Range: 1-3600
 # Default:
-# UnavailableDelay=60
+UnavailableDelay=30
 
 ### Option: UnreachableDelay
 #	How often host is checked for availability during the unreachability period, in seconds.
@@ -609,7 +609,7 @@ LogSlowQueries=3000
 #
 # Mandatory: yes, if TLS certificate or PSK parameters are defined (even for 'unencrypted' connection)
 # Default:
-# TLSConnect=unencrypted
+TLSConnect=psk
 
 ### Option: TLSAccept
 #	What incoming connections to accept from Zabbix server. Used for a passive proxy, ignored on an active proxy.
@@ -670,11 +670,11 @@ LogSlowQueries=3000
 #
 # Mandatory: no
 # Default:
-# TLSPSKIdentity=
+TLSPSKIdentity=proxy
 
 ### Option: TLSPSKFile
 #	Full pathname of a file containing the pre-shared key.
 #
 # Mandatory: no
 # Default:
-# TLSPSKFile=
+TLSPSKFile=/etc/zabbix/proxy_key
