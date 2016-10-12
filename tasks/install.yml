@@ -15,6 +15,15 @@
     - zabbix-agent
     - zabbix-java-gateway
 
+- name: Start Zabbix Agent at Boot
+  service:
+    name: zabbix-agent
+    enabled: yes
+
+- name: Start Zabbix Proxy at Boot
+  service:
+    name: zabbix-proxy
+    enabled: yes
 
 - name: Get installed Zabbix version
   shell: rpm -qi zabbix-server-mysql | awk 'BEGIN {FS=":"} ; /Version/{print $2}'| xargs
