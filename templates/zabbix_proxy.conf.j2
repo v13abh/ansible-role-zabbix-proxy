@@ -40,7 +40,7 @@ Server=10.255.255.10
 # Default:
 # Hostname=
 
-Hostname=proxy
+Hostname={{ zabbix_proxy_name }}
 
 ### Option: HostnameItem
 #	Item used for generating Hostname if it is undefined.
@@ -670,7 +670,7 @@ TLSConnect=psk
 #
 # Mandatory: no
 # Default:
-TLSPSKIdentity=proxy
+TLSPSKIdentity={{ zabbix_psk_ident }}
 
 ### Option: TLSPSKFile
 #	Full pathname of a file containing the pre-shared key.

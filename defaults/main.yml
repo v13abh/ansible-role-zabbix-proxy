@@ -1,20 +1,10 @@
 ---
 # defaults file for OULibraries.zabbix
 
-# DB admin user for creating zabbix db 
-mariadb_host: "localhost"
-mariadb_port: "3306"
-mariadb_root_user: 'root'
-
-# Zabbix db and credentials
-zabbix_db: 'zabbix'
-zabbix_db_user: 'zabbix'
-zabbix_db_pass: 'zabbix'
-
 zabbix_tz: "America/Chicago"
 
 # TLD to use with zabbix, prepended to base dn from Apache role
-zabbix_hostname: 'proxy'
+zabbix_hostname: {{ zabbix_proxy_name }}
 
 httpd_cert_path: '/etc/pki/tls/certs/'
 httpd_key_path: '/etc/pki/tls/private/'
