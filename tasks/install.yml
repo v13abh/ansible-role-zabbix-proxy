@@ -10,8 +10,6 @@
     state: latest
   with_items:
     - zabbix-proxy-mysql.x86_64
-    - zabbix-server-mysql
-    - zabbix-web-mysql
     - zabbix-agent
     - zabbix-java-gateway
 
@@ -26,7 +24,7 @@
     enabled: yes
 
 - name: Get installed Zabbix version
-  shell: rpm -qi zabbix-server-mysql | awk 'BEGIN {FS=":"} ; /Version/{print $2}'| xargs
+  shell: rpm -qi zabbix-proxy-mysql | awk 'BEGIN {FS=":"} ; /Version/{print $2}'| xargs
   register:  zabbix_version_cmd
 
 

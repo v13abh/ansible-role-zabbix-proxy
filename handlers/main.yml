@@ -9,17 +9,6 @@
     login_password: "root"
     login_host: "{{mariadb_host}}"
 
-
-- name: Restart Zabbix server
-  service:
-    name: zabbix-server
-    state: restarted
-
-- name: Restart Zabbix web
-  service:
-    name: httpd
-    state: restarted
-
 - name: Restart Zabbix agent
   service:
     name: zabbix-agent
