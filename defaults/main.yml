@@ -4,7 +4,7 @@
 zabbix_tz: "America/Chicago"
 
 # TLD to use with zabbix, prepended to base dn from Apache role
-zabbix_hostname: {{ zabbix_proxy_name }}
+zabbix_hostname: '{{ zabbix_proxy_name }}'
 
 httpd_cert_path: '/etc/pki/tls/certs/'
 httpd_key_path: '/etc/pki/tls/private/'
